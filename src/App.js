@@ -1,12 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import Props01 from './components/Props01';
+import NewsBlog from './newsBlog/NewsBlog'
 
 
 function App() {
 
   return(
-    <Props01 />
+    <NewsBlog />
   );
   // return (
   //   <div className="App">
