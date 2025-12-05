@@ -36,7 +36,6 @@ function NewsBlog() {
                         <div div className = "post-list" >
                             <h4 onClick={() => {
 
-                                console.log(index);
                                 setpcount(pcount = index);
                                 setModalFlag(!modalFlag); //!true => false;
 
@@ -46,7 +45,7 @@ function NewsBlog() {
                                 let copy = [...likeCount];
                                 copy[index]++;
                                 setLikeCount(copy); //하트 갯수 증가 + 재랜더링
-                                
+
                             }}>🖤</span>{likeCount[index]}
                             </h4>
                             <p>내용</p>
