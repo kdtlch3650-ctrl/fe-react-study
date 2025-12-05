@@ -20,7 +20,7 @@ function NewsBlog() {
     let [modalFlag, setModalFlag] = useState(false);
 
     let [selectedTitle, setselectedTitle] = useState('');
-    let [selectedLikeCount,setSelectedLikeCount] = useState();
+    let [selectedLikeCount, setSelectedLikeCount] = useState();
 
     let [inputText, setInputText] = useState('');
 
@@ -52,6 +52,18 @@ function NewsBlog() {
                                 }}> ❤</span> {likeCountArr[index]}
                             </h4>
                             <p>내용</p>
+                            <button onClick={() => {
+                                // let templike = [...likeCountArr]
+                                // templike.splice(index,1)
+                                let templike = [likeCountArr.slice(0,index),likeCountArr.slice(index+1)];
+                                setLikeCountArr(templike);
+                                
+                                // let temp = [];
+                                // temp.splice(index,1);
+                                let temp = [news.slice(0,index),news.slice(index+1)];
+                                setNews(temp);
+                                
+                            }}>삭제</button>
                         </div>
                     )
                 })
@@ -70,34 +82,41 @@ function NewsBlog() {
                 <p>내용</p>
             </div> */}
 
-                <div>
-                    <input type="text" id='input_news_title' value={inputText} onChange={(event)=>{
-                        console.log(event.target.value);    
-                        setInputText(event.target.value);                    
-                    }}/>
-                    <button onClick={()=>{
-                        // let title =  document.getElementById('input_news_title').value;
+            <div>
+                <input type="text" id='input_news_title' value={inputText} onChange={(event) => {
+                    console.log(event.target.value);
+                    setInputText(event.target.value);
+                }} />
+                <button onClick={() => {
+                    // let title =  document.getElementById('input_news_title').value;
 
-                        // let temp = [...news];
-                        // temp.push(title);
-                        // setNews(temp);
+                    // let temp = [...news];
+                    // temp.push(title);
+                    // setNews(temp);
 
-                        // document.getElementById('input_news_title').value = "";
-
+                    // document.getElementById('input_news_title').value = "";
+                    // let tempHt = [...likeCountArr];
+                    // tempHt.push(0);
+                    if (inputText.trim() == '') {
+                        alert("값이 없습니다.")
+                    } else {
+                        setLikeCountArr([...likeCountArr, 0]);
                         let temp = [...news];
                         temp.push(inputText);
                         setNews(temp);
+                    }
 
-                        setInputText('');
+                    setInputText('');
 
-                    }}>발행</button>
-                </div>
-            
+                }}>발행</button>
+            </div>
+
             {
                 /* modalFlag == true ? <Modal/> : null */
             }
+
             {
-                modalFlag && <Modal news={news} setNews={setNews} title={selectedTitle} likeCount={selectedLikeCount}/>
+                modalFlag && <Modal news={news} setNews={setNews} title={selectedTitle} likeCount={selectedLikeCount} />
             }
 
         </div>
