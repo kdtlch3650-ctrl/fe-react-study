@@ -53,14 +53,14 @@ function NewsBlog() {
                             </h4>
                             <p>내용</p>
                             <button onClick={() => {
-                                let templike = [...likeCountArr]
-                                templike.splice(index,1)
-                                // let templike = [likeCountArr.slice(0,index),likeCountArr.slice(index+1)];
+                                // let templike = [...likeCountArr]
+                                // templike.splice(index,1)
+                                let templike = [...likeCountArr.slice(0,index),...likeCountArr.slice(index+1)];
                                 setLikeCountArr(templike);
                                 
-                                let temp = [];
-                                temp.splice(index,1);
-                                // let temp = [news.slice(0,index),news.slice(index+1)];
+                                // let temp = [];
+                                // temp.splice(index,1);
+                                let temp = [...news.slice(0,index),...news.slice(index+1)];
                                 setNews(temp);
                                 
                             }}>삭제</button>
