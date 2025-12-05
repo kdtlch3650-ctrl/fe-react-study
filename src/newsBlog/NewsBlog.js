@@ -109,9 +109,18 @@ function NewsBlog() {
 {
     // modalFlag == true ? <Modal/>:null
 }
+
+{/* <button onClick={()=>{
+    // 'Today News'
+    let temp = [...news];
+    temp[0] = 'Today News';
+    setNews(temp);
+
+}}>첫글 제목 변경</button> */}
+
 {
     // modalFlag && console.log(ptitle[pcount])
-    modalFlag && <Modal probs={{ ptitle: ptitle[pcount], pday: pday[pcount], pcontent: pcontent[pcount] }} />
+    modalFlag && <Modal probs={{ ptitle: ptitle[pcount], pday: pday[pcount], pcontent: pcontent[pcount],news:{news},setNews:{setNews}}} />
     // modalFlag && <Modal probs={{ ptitle : title, pday : title, pcontent : title}} />
 }
         </div >
