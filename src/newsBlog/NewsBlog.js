@@ -13,16 +13,9 @@ function NewsBlog() {
 
     let [news, setNews] = useState(['오늘의 뉴스', '어제의 뉴스', '내일의 뉴스']);
 
-    let [likeCount, setLikeCount] = useState([0, 0, 0]);
+    let [likeCount, setLikeCount] = useState(0);
 
     let [modalFlag, setModalFlag] = useState(false);
-
-    let ptitle = ['1제목', '2제목', '3제목'];
-    let pday = ['1', '2', '3'];
-    let pcontent = ['1내용', '2내용', '3내용'];
-
-    let count = [0, 1, 2];
-    let [pcount,setpcount] = useState(0);
     return (
         <div>
             <div className="black-nav">
@@ -55,22 +48,7 @@ function NewsBlog() {
             }
 
 
-{/* <div className="post-list">
-                <h4 onClick={() => {
-                    setModalFlag(!modalFlag); //!true => false;
-                }}>{news[0]} <span onClick={(event) => {
-                    event.stopPropagation(); //이벤트 발생을 추가로 전파(전달) stop
-                    setLikeCount(likeCount++) //하트 갯수 증가 + 재랜더링
-                }}>🖤</span>{likeCount}
-                </h4>
-                <p>내용</p>
-            </div> */}
-
-
-
-
-
-{/* <div className="post-list">
+            <div className="post-list">
                 <h4 onClick={() => {
                     // 순수 함수 영역이기에 if 문 가능
                     //return 밖에다 하는것과 같음
@@ -92,8 +70,16 @@ function NewsBlog() {
                 }}>🖤</span>{likeCount}
                 </h4>
                 <p>내용</p>
-            </div> */}
-{/* <div className="post-list">
+            </div>
+            <div className="post-list">
+                <h4>{news[1]}</h4>
+                <p>내용</p>
+            </div>
+            <div className="post-list">
+                <h4>{news[2]}</h4>
+                <p>내용</p>
+            </div>
+            {/* <div className="post-list">
                 <h4>{news[0]}</h4>
                 <p>내용</p>
             </div>
@@ -106,15 +92,13 @@ function NewsBlog() {
                 <p>내용</p>
             </div> */}
 
-{
-    // modalFlag == true ? <Modal/>:null
-}
-{
-    // modalFlag && console.log(ptitle[pcount])
-    modalFlag && <Modal probs={{ ptitle: ptitle[pcount], pday: pday[pcount], pcontent: pcontent[pcount] }} />
-    // modalFlag && <Modal probs={{ ptitle : title, pday : title, pcontent : title}} />
-}
-        </div >
+            {
+                // modalFlag == true ? <Modal/>:null
+            }
+            {
+                modalFlag && <Modal />
+            }
+        </div>
     );
 }
 export default NewsBlog;
