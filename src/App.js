@@ -2,12 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import Props01 from './components/Props01';
 import NewsBlog from './newsBlog/NewsBlog'
+import NewsBlog2 from './newsblogTe/NewsBlog'
 
 
 function App() {
 
   return(
-    <NewsBlog />
+    <NewsBlog2 />
   );
   // return (
   //   <div className="App">
